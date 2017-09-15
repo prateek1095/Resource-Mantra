@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html ng-app="BudgetApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSPINIA | Main view</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+   
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" class="navbar-default navbar-static-side">
+        <div class="sidebar-collapse">
+          <ul id="side-menu" class="nav metismenu">
+            <li class="nav-header">
+              <div class="dropdown profile-element"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><span class="clear"><span class="block m-t-xs"><strong class="font-bold"></strong></span><span class="text-muted text-xs block">Position <b class="caret"></b></span></span></a></div>
+              <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                <li><a href="profile">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="logout">Logout</a></li>
+              </ul>
+            </li>
+            <div class="logo-element">AV++</div>
+            <li class="active"><a href="dashboard"><i class="fa fa-th-large"></i><span class="nav-label">Dashboard    </span></a></li>
+            <li><a id="step2" href="workers"><i class="fa fa-th-large"></i><span class="nav-label">Workers</span></a></li>
+            <li><a id="step3" href="projects"><i class="fa fa-th-large"></i><span class="nav-label">Projects</span></a></li>
+            <li><a id="" href="accounts"><i class="fa fa-th-large"></i><span class="nav-label">Accounts</span></a></li>
+          </ul>
+        </div>
+      </nav>
+      <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+          <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-static-top white-bg">
+            <div class="navbar-header"><a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary"><i class="fa fa-bars"></i></a>
+              <form role="search" method="post" action="#" class="navbar-form-custom">
+                <div class="form-group">
+                  <input id="top-search" type="text" placeholder="Search for something..." name="top-search" class="form-control">
+                </div>
+              </form>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+              <li>
+                  <a href="#" class="btn  startTour"><i class="fa fa-play"></i></a>
+              </li>
+              <li class="dropdown" >
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" id="step4">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">7</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <p>{{notify.list[1].humidity}}</p>
+                                </div>
+                            </a>
+                        </li>
+                      
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+              <li><a href="logout"><i class="fa fa-sign-out"></i> Log out</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center m-t-lg">
+                <div id="myAlert" style="margin:1%;font-family:sans-serif" class="alert alert-danger fade in"><a href="#" style="color:black" data-dismiss="alert" aria-label="close" class="close">&times;</a>
+                  <h3>Welcome Rohit , you are now logged in as a secure user</h3>
+                </div>
+                <h1>   Welcome in AVANTAN  Web App</h1><small>   It is an application skeleton .</small>
+                
+                <div class="text-center m-t-lg"><a id="step1" href="#modal2" data-toggle="modal" class="btn btn-danger btn-lg">Get Started</a></div>
+              </div>
+
+            </div>
+            </div>
+                
+            <div id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="DashboardCtrl" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                    <h4 class="modal-title">Project Details</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form">
+                      <div class="form-group">
+                        <label>Project Title:</label>
+                        <input type="text"  placeholder="Name.." ng-model="text.Title">
+                      </div>
+                      <div class="form-group">
+                        <label>Completion Date:</label>
+                        <input type="text" name="date" ng-model="text.date">
+                      </div>
+                      <div class="form-group">
+                        <label>Workers required:</label>
+                        <input type="number" name="workers" ng-model="text.workers">
+                      </div>
+                      <div class="form-group">
+                        <label>Position 1</label>
+                        <select class="medium" name="categories" ng-model="text.position" class="form-control">
+                          <option>General Worker</option>
+                          <option>Lead Operator</option>
+                          <option>Artisan</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Position 2</label>
+                        <select class="medium" name="categories"  class="form-control">
+                          <option>General Worker</option>
+                          <option>Lead Operator</option>
+                          <option>Artisan</option>
+                        </select>
+                      </div><div class="form-group">
+                        <label>Position 3</label>
+                        <select class="medium" name="categories"  class="form-control">
+                          <option>General Worker</option>
+                          <option>Lead Operator</option>
+                          <option>Artisan</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Priority</label>
+                        <select name="categories" ng-model="text.priority" class="form-control">
+                          <option>Critical</option>
+                          <option>Serious</option>
+                          <option>Moderate</option>
+                          <option>Low</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button type="submit" ng-click="addproject(text)" data-dismiss="modal"  class="btn btn-primary">Save Changes                                                                                               </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                    <button type="submit" data-target="#myModal" data-toggle="modal" data-dismiss="modal" class="btn btn-danger">Go back                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="pull-right"><strong>Copyright</strong> Example Company © 2016-2017</div>
+        </div>
+      </div>
+    </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <script type="text/javascript" src="app/appy.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script>
+    <script type="text/javascript" src="app/script.js">     </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+    <!-- Bootstrap Tour -->
+    <script src="js/bootstrap-tour.min.js"></script>
+
+    <script>
+
+      $(document).ready(function (){
+
+          // Instance the tour
+          var tour = new Tour({
+              steps: [{
+
+                      element: "#step1",
+                      title: "Get Started , with new projects!!",
+                      content: "Introduce new users to your product by walking them through it step by step.",
+                      placement: "top"
+                  },
+                  {
+                      element: "#step2",
+                      title: "See Workers details",
+                      content: "Content of my step",
+                      placement: "right",
+                      backdrop: true,
+                      backdropContainer: '#wrapper',
+                      onShown: function (tour){
+                          $('body').addClass('tour-open')
+                      },
+                      onHidden: function (tour){
+                          $('body').removeClass('tour-close')
+                      }
+                  },
+                  {
+                      element: "#step3",
+                      title: "Check existing + new Projects!!",
+                      content: "Introduce new users to your product by walking them through it step by step.",
+                      placement: "right"
+                  },
+                  {
+                      element: "#step4",
+                      title: "Check your Notifications!!",
+                      content: "Introduce new users to your product by walking them through it step by step.",
+                      placement: "bottom"
+                  }
+              ]});
+
+          // Initialize the tour
+          tour.init();
+
+          $('.startTour').click(function(){
+              tour.restart();
+
+              // Start the tour
+              // tour.start();
+          })
+
+      });
+
+    </script>
+
+
+  </body>
+</html>

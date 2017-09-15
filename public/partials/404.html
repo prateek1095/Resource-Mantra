@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BudgetApp">
+  <head>
+    <title>Quest Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&amp;subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="stylesheet" href="app/404.css">
+  </head>
+  <body>
+    <div class="page-not-found-modal" data-ng-controller="MainCtrl">
+      <h1>404 Error</h1>
+      <p>Sorry, that page doesn't exist. </p><a href="/">Go to Home Page.</a>
+      <div class="">
+                  <label for="search"><i class=""></i>
+                  </label>
+                  <input id="search" type="search" required  ng-model="search">
+          <hr>
+        </div>
+      <!--<div ng-show="search" ng-repeat="redtickets in redticket | filter:search ">
+        {{redtickets['Name & Surname'] + " " + redtickets['Position']}}
+      </div>-->
+    </div>
+  </body>
+  <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="app/appy.js"></script>
+
+</html>

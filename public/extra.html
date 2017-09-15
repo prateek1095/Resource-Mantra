@@ -1,0 +1,54 @@
+<!--   <div  ng-controller="CreateCtrl"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                    <h4 class="modal-title">New Project</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" class="form-horizontal"></form>
+                    <div class="form-group">
+                      <label>What's Your Budget ?</label>
+                      <input type="number" id="number" placeholder="Rs." name="no" ng-model="budget.no">
+                    </div>
+                    <div class="form-group">
+                      <label>Project Title:</label>
+                      <input type="text"  placeholder="Name.." ng-model="text.Title">
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                    <button type="button" data-target="#modal2" data-toggle="modal" data-dismiss="modal" class="btn btn-success budget">Start  </button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+         
+
+  app.controller("CreateCtrl" ,['$scope'  ,'$firebaseArray' , function($scope,$firebaseArray){
+
+    var ref = new Firebase("https://resourcemantra-35118.firebaseio.com");
+    var sync= $firebaseArray(ref);
+    console.log('CreateCtrl');
+    $scope.texts=sync;
+     $scope.addproject = function(text) {
+         $scope.texts.$add({
+            Title:text.Title,
+            workers:text.workers,
+            position:text.position,
+            date:text.date,
+            priority:text.priority
+        });
+                text.Title="";
+                text.workers = "";
+                text.position="";
+                text.date="";
+                text.priority="";
+          alert("New Project Succesfully added!!");
+    }
+    $scope.deleteThread=function(text){
+        $scope.texts.splice(text,1);
+    }
+    
+}]);
